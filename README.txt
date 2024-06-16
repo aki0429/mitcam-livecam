@@ -11,7 +11,7 @@
 
 1.  >npm init -y
 2.  >npm install typescript
-3.  npx tsc --init
+3.  >npx tsc --init
 4.  tsconfig.jsonの　"sourceMap": trueをオンにする　（//を消す）
 5.  ターミナル☞既定のビルドタスクの構成を押す
 6.  tsc:ビルドー tsconfig.jsonを押す

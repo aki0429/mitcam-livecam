@@ -37,7 +37,7 @@ class CamFetcher {
     fetchPicture() {
         return __awaiter(this, void 0, void 0, function* () {
             this.camId.map((id) => __awaiter(this, void 0, void 0, function* () {
-                const response = yield fetch(`https://www.sansyu.kyoto.kkr.mlit.go.jp/live/data/getImage.php?cameraId=${id}`);
+                const response = yield fetch(`https://sansyu.kyoto.kkr.mlit.go.jp/live/data/getImage.php?cameraId=${id}`);
                 if (!response.ok)
                     throw new Error(`CameraHTTPError : Fetch failed. ${response.status} ${response.statusText} - ${response.url}`);
                 const ImageBuff = yield response.arrayBuffer();
@@ -50,7 +50,7 @@ class CamFetcher {
     }
     savePicture(imageBuff, id) {
         const Image = Buffer.from(imageBuff);
-        const stream = fs_1.default.createWriteStream(`${__dirname}/cache/${this.place}.${id}.jfif`);
+        const stream = fs_1.default.createWriteStream(`${__dirname}/cache/${this.place}.${id}.jpg`);
         stream.write(Image, "binary");
         stream.end();
         stream.on('finish', () => __awaiter(this, void 0, void 0, function* () {
